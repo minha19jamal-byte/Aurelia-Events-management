@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en-BD">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+  <title>Aurelia Events | Event Management Company in Chattogram, Bangladesh</title>
+  <meta name="description" content="Aurelia Events plans weddings, corporate events, conferences, concerts and private celebrations in Chattogram, Bangladesh.">
+  <meta name="theme-color" content="#15110e">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Aurelia Events | Chattogram">
+  <meta property="og:description" content="Weddings, corporate events and celebrations in Chattogram, Bangladesh.">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=1200&q=75">
+
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://images.unsplash.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            ink: "#15110e",
+            gold: "#c9a66b",
+            sand: "#f6f0e6"
+          },
+          fontFamily: {
+            sans: ["Manrope", "sans-serif"],
+            display: ["Cormorant Garamond", "serif"]
+          }
+        }
+      }
+    };
+  </script>
+
+  <style>
+    html { scroll-behavior: smooth; }
+    .hero-bg {
+      background-image:
+        linear-gradient(90deg, rgba(12,10,9,.88), rgba(12,10,9,.30)),
+        url("https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=2000&q=85");
+      background-size: cover;
+      background-position: center;
+    }
+    .display-em { color: #b88d4a; font-style: italic; }
+    .reveal { animation: fade-up .7s ease both; }
+    @keyframes fade-up {
+      from { opacity: 0; transform: translateY(18px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .menu-open { display: flex !important; }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: .01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "EventPlanner",
+    "name": "Aurelia Events",
+    "description": "Event planning services in Chattogram, Bangladesh.",
+    "telephone": "+8801760119819",
+    "email": "hello@aureliaevents.in",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Halishahar",
+      "addressLocality": "Chattogram",
+      "addressRegion": "Chattogram",
+      "addressCountry": "BD"
+    },
+    "areaServed": [
+      "Halishahar, Chattogram",
+      "Foy's Lake, Chattogram",
+      "GEC Circle, Chattogram",
+      "Agrabad, Chattogram",
+      "Pahartali, Chattogram"
+    ],
+    "currenciesAccepted": "BDT",
+    "priceRange": "৳50,000–৳5,00,000"
+  }
+  </script>
+</head>
+
+<body class="bg-white font-sans text-ink antialiased">
+
+  <!-- HEADER -->
+  <header class="absolute inset-x-0 top-0 z-50 border-b border-white/20">
+    <nav class="mx-auto flex max-w-7xl items-center justify-between px-5 py-5 lg:px-10">
+      <a href="index.html" class="font-display text-3xl font-bold text-white">
+        Aurelia<span class="text-gold">.</span>
+      </a>
+
+      <button id="menu-button" type="button"
+        class="rounded border border-white/40 px-4 py-2 text-sm text-white md:hidden"
+        aria-expanded="false" aria-controls="mobile-menu">
+        Menu ☰
+      </button>
+
+      <div class="hidden items-center gap-7 text-sm text-white md:flex">
+        <a href="index.html" class="hover:text-gold">Home</a>
+        <a href="about.html" class="hover:text-gold">About</a>
+        <a href="services.html" class="hover:text-gold">Services</a>
+        <a href="portfolio.html" class="hover:text-gold">Portfolio</a>
+        <a href="blog.html" class="hover:text-gold">Journal</a>
+        <a href="contact.html" class="hover:text-gold">Contact</a>
+      </div>
+
+      <a href="plan.html" class="hidden bg-gold px-5 py-3 text-sm font-bold text-ink hover:bg-white md:block">
+        Plan Your Event
+      </a>
+    </nav>
+
+    <div id="mobile-menu" class="hidden flex-col gap-4 bg-ink px-6 py-6 text-white md:hidden">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="services.html">Services</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="blog.html">Journal</a>
+      <a href="contact.html">Contact</a>
+      <a href="plan.html" class="font-bold text-gold">Plan Your Event →</a>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="hero-bg relative flex min-h-[760px] items-center pt-28 text-white sm:min-h-screen">
+      <div class="mx-auto w-full max-w-7xl px-5 py-20 lg:px-10">
+        <div class="reveal max-w-4xl">
+          <p class="mb-6 text-xs font-bold uppercase tracking-[.25em] text-gold sm:text-sm">
+            Event Management · Chattogram & Across Bangladesh
+          </p>
+
+          <h1 class="font-display text-5xl font-semibold leading-[1.08] sm:text-7xl lg:text-8xl">
+            We plan unforgettable
+            <span id="hero-word" class="display-em">weddings</span>
+          </h1>
+
+          <p class="mt-7 max-w-2xl text-base leading-8 text-white/80 sm:text-lg">
+            From an intimate reception to a large concert, one team handles
+            your event end to end: design, vendors, production and hospitality.
+          </p>
+
+          <div class="mt-9 flex flex-wrap gap-4">
+            <a href="plan.html" class="inline-flex items-center gap-3 bg-gold px-7 py-4 text-sm font-bold text-ink transition hover:bg-white">
+              Plan Your Event <span>→</span>
+            </a>
+            <a href="portfolio.html" class="border border-white/60 px-7 py-4 text-sm font-bold text-white transition hover:bg-white hover:text-ink">
+              View Our Work
+            </a>
+          </div>
+        </div>
+
+        <div class="mt-20 flex flex-wrap gap-x-8 gap-y-4 border-t border-white/25 pt-6 text-xs text-white/85 sm:text-sm">
+          <span>★ Event planning tailored to you</span>
+          <span>✓ Clear quotations</span>
+          <span>✦ Personalised event design</span>
+        </div>
+      </div>
+
+      <div class="absolute bottom-5 right-6 text-xs uppercase tracking-widest text-white/60">
+        Chattogram, Bangladesh
+      </div>
+    </section>
+
+    <!-- INTRODUCTION -->
+    <section class="px-5 py-20 sm:py-24 lg:px-10 lg:py-28">
+      <div class="mx-auto grid max-w-7xl items-center gap-14 md:grid-cols-2">
+        <div class="relative pb-5 pr-5">
+          <img
+            src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?auto=format&fit=crop&w=1000&q=80"
+            alt="Elegant wedding reception setup"
+            loading="lazy"
+            class="h-[420px] w-full object-cover sm:h-[540px]"
+          >
+          <img
+            src="https://images.unsplash.com/photo-1597157639073-69284dc0fdaf?auto=format&fit=crop&w=500&q=80"
+            alt="Wedding details"
+            loading="lazy"
+            class="absolute -bottom-1 right-0 h-36 w-36 border-8 border-white object-cover sm:h-48 sm:w-48"
+          >
+          <div class="absolute left-0 top-5 bg-gold px-5 py-4 text-ink">
+            <p class="font-display text-3xl font-bold">Your Day</p>
+            <p class="text-xs">Your vision</p>
+          </div>
+        </div>
+
+        <div class="reveal">
+          <p class="text-xs font-bold uppercase tracking-[.25em] text-amber-800">
+            Welcome to Aurelia Events
+          </p>
+          <h2 class="mt-5 font-display text-4xl font-semibold leading-tight sm:text-6xl">
+            Every detail designed.
+            <span class="display-em">Every moment felt.</span>
+          </h2>
+          <p class="mt-6 leading-8 text-stone-600">
+            We help bring your ideas to life through thoughtful planning,
+            creative design and careful coordination. From intimate family
+            gatherings to large celebrations, every event deserves attention
+            to detail.
+          </p>
+
+          <ul class="mt-7 space-y-4 text-sm text-stone-700">
+            <li>✓ Personalised event design</li>
+            <li>✓ Vendor and venue coordination</li>
+            <li>✓ Production and decoration planning</li>
+            <li>✓ One point of contact for your event</li>
+          </ul>
+
+          <div class="mt-8 flex flex-wrap gap-4">
+            <a href="about.html" class="bg-ink px-6 py-4 text-sm font-bold text-white hover:bg-amber-800">
+              Our Story →
+            </a>
+            <a href="contact.html" class="border border-ink px-6 py-4 text-sm font-bold hover:bg-sand">
+              Talk to Us
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STATS -->
+    <section class="bg-sand px-5 py-14 lg:px-10">
+      <div class="mx-auto grid max-w-7xl grid-cols-2 gap-9 text-center md:grid-cols-4">
+        <div>
+          <p class="font-display text-4xl font-bold sm:text-5xl">Events</p>
+          <p class="mt-3 text-xs uppercase tracking-widest text-stone-600">Planned With Care</p>
+        </div>
+        <div>
+          <p class="font-display text-4xl font-bold sm:text-5xl">Creative</p>
+          <p class="mt-3 text-xs uppercase tracking-widest text-stone-600">Event Concepts</p>
+        </div>
+        <div>
+          <p class="font-display text-4xl font-bold sm:text-5xl">Local</p>
+          <p class="mt-3 text-xs uppercase tracking-widest text-stone-600">Chattogram Expertise</p>
+        </div>
+        <div>
+          <p class="font-display text-4xl font-bold sm:text-5xl">Personal</p>
+          <p class="mt-3 text-xs uppercase tracking-widest text-stone-600">Dedicated Support</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="px-5 py-20 sm:py-24 lg:px-10 lg:py-28">
+      <div class="mx-auto max-w-7xl">
+        <div class="mx-auto mb-14 max-w-3xl text-center">
+          <p class="text-xs font-bold uppercase tracking-[.25em] text-amber-800">What We Do</p>
+          <h2 class="mt-4 font-display text-4xl font-semibold sm:text-6xl">
+            Every kind of event,
+            <span class="display-em">one trusted team.</span>
+          </h2>
+          <p class="mt-5 leading-7 text-stone-600">
+            Choose full event planning or the individual services that fit your needs.
+          </p>
+        </div>
+
+        <div class="grid gap-7 sm:grid-cols-2 lg:grid-cols-4">
+          <a href="services.html" class="group">
+            <div class="overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=700&q=80"
+                alt="Wedding celebration" loading="lazy"
+                class="h-72 w-full object-cover transition duration-500 group-hover:scale-105">
+            </div>
+            <h3 class="mt-5 font-display text-2xl font-semibold">Weddings</h3>
+            <p class="mt-2 text-sm leading-6 text-stone-600">Celebrate your special day with thoughtful design and planning.</p>
+            <span class="mt-4 inline-block text-sm font-bold text-amber-800">Explore →</span>
+          </a>
+
+          <a href="services.html" class="group">
+            <div class="overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=700&q=80"
+                alt="Corporate event" loading="lazy"
+                class="h-72 w-full object-cover transition duration-500 group-hover:scale-105">
+            </div>
+            <h3 class="mt-5 font-display text-2xl font-semibold">Corporate Events</h3>
+            <p class="mt-2 text-sm leading-6 text-stone-600">Professional gatherings, conferences and brand experiences.</p>
+            <span class="mt-4 inline-block text-sm font-bold text-amber-800">Explore →</span>
+          </a>
+
+          <a href="services.html" class="group">
+            <div class="overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1506157786151-b8491531f063?auto=format&fit=crop&w=700&q=80"
+                alt="Concert stage" loading="lazy"
+                class="h-72 w-full object-cover transition duration-500 group-hover:scale-105">
+            </div>
+            <h3 class="mt-5 font-display text-2xl font-semibold">Concerts</h3>
+            <p class="mt-2 text-sm leading-6 text-stone-600">Live entertainment, stage planning and event coordination.</p>
+            <span class="mt-4 inline-block text-sm font-bold text-amber-800">Explore →</span>
+          </a>
+
+          <a href="services.html" class="group">
+            <div class="overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=700&q=80"
+                alt="Private celebration" loading="lazy"
+                class="h-72 w-full object-cover transition duration-500 group-hover:scale-105">
+            </div>
+            <h3 class="mt-5 font-display text-2xl font-semibold">Private Parties</h3>
+            <p class="mt-2 text-sm leading-6 text-stone-600">Birthdays, anniversaries and meaningful family occasions.</p>
+            <span class="mt-4 inline-block text-sm font-bold text-amber-800">Explore →</span>
+          </a>
+        </div>
+
+        <div class="mt-12 text-center">
+          <a href="services.html" class="inline-block border border-ink px-7 py-4 text-sm font-bold hover:bg-ink hover:text-white">
+            Explore All Services →
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHY CHOOSE US -->
+    <section class="bg-ink px-5 py-20 text-white sm:py-24 lg:px-10 lg:py-28">
+      <div class="mx-auto max-w-7xl">
+        <div class="mb-14 max-w-3xl">
+          <p class="text-xs font-bold uppercase tracking-[.25em] text-gold">Why Choose Us</p>
+          <h2 class="mt-4 font-display text-4xl font-semibold sm:text-6xl">
+            The calm behind
+            <span class="display-em">every celebration.</span>
+          </h2>
+          <p class="mt-5 max-w-2xl leading-7 text-white/60">
+            Organised planning, thoughtful design and clear communication
+            throughout your event journey.
+          </p>
+        </div>
+
+        <div class="grid gap-9 sm:grid-cols-2 lg:grid-cols-3">
+          <article class="border-t border-white/20 pt-6">
+            <span class="text-2xl text-gold">01</span>
+            <h3 class="mt-4 font-display text-2xl">Transparent Pricing</h3>
+            <p class="mt-3 leading-7 text-white/65">Understand your quotation and planned expenses before making decisions.</p>
+          </article>
+          <article class="border-t border-white/20 pt-6">
+            <span class="text-2xl text-gold">02</span>
+            <h3 class="mt-4 font-display text-2xl">Creative Design</h3>
+            <p class="mt-3 leading-7 text-white/65">Bring your ideas together through décor concepts and visual planning.</p>
+          </article>
+          <article class="border-t border-white/20 pt-6">
+            <span class="text-2xl text-gold">03</span>
+            <h3 class="mt-4 font-display text-2xl">Dedicated Support</h3>
+            <p class="mt-3 leading-7 text-white/65">Keep communication organised with a central point of contact.</p>
+          </article>
+          <article class="border-t border-white/20 pt-6">
+            <span class="text-2xl text-gold">04</span>
+            <h3 class="mt-4 font-display text-2xl">Production Planning</h3>
+            <p class="mt-3 leading-7 text-white/65">Coordinate lighting, sound, staging and technical requirements.</p>
+          </article>
+          <article class="border-t border-white/20 pt-6">
+            <span class="text-2xl text-gold">05</span>
+            <h3 class="mt-4 font-display text-2xl">Vendor Coordination</h3>
+            <p class="mt-3 leading-7 text-white/65">Bring venues, suppliers and service providers together.</p>
+          </article>
+          <article class="border-t border-white/20 pt-6">
+            <span class="text-2xl text-gold">06</span>
+            <h3 class="mt-4 font-display text-2xl">Local Expertise</h3>
+            <p class="mt-3 leading-7 text-white/65">Plan events with your Chattogram venue, guests and requirements in mind.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section class="px-5 py-20 sm:py-24 lg:px-10">
+      <div class="mx-auto max-w-7xl">
+        <div class="mb-14 text-center">
+          <p class="text-xs font-bold uppercase tracking-[.25em] text-amber-800">How We Work</p>
+          <h2 class="mt-4 font-display text-4xl font-semibold sm:text-6xl">
+            From first call to <span class="display-em">final applause.</span>
+          </h2>
+        </div>
+
+        <div class="grid gap-8 md:grid-cols-4">
+          <article class="border-t-2 border-gold pt-6">
+            <p class="font-display text-4xl text-amber-800">01</p>
+            <h3 class="mt-4 text-lg font-bold">Let's Talk</h3>
+            <p class="mt-3 text-sm leading-7 text-stone-600">Tell us your event type, date, guest count and ideas.</p>
+          </article>
+          <article class="border-t-2 border-gold pt-6">
+            <p class="font-display text-4xl text-amber-800">02</p>
+            <h3 class="mt-4 text-lg font-bold">Plan & Design</h3>
+            <p class="mt-3 text-sm leading-7 text-stone-600">Develop a concept and discuss the budget and priorities.</p>
+          </article>
+          <article class="border-t-2 border-gold pt-6">
+            <p class="font-display text-4xl text-amber-800">03</p>
+            <h3 class="mt-4 text-lg font-bold">Coordinate</h3>
+            <p class="mt-3 text-sm leading-7 text-stone-600">Organise vendors, venue details, schedules and production.</p>
+          </article>
+          <article class="border-t-2 border-gold pt-6">
+            <p class="font-display text-4xl text-amber-800">04</p>
+            <h3 class="mt-4 text-lg font-bold">Celebrate</h3>
+            <p class="mt-3 text-sm leading-7 text-stone-600">Enjoy the occasion while the event plan guides execution.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURED WORK -->
+    <section class="bg-sand px-5 py-20 sm:py-24 lg:px-10">
+      <div class="mx-auto max-w-7xl">
+        <div class="mb-12 flex flex-wrap items-end justify-between gap-5">
+          <div>
+            <p class="text-xs font-bold uppercase tracking-[.25em] text-amber-800">Featured Work</p>
+            <h2 class="mt-4 font-display text-4xl font-semibold sm:text-6xl">
+              Stories we're <span class="display-em">proud of.</span>
+            </h2>
+          </div>
+          <a href="portfolio.html" class="text-sm font-bold hover:text-amber-800">All Case Studies →</a>
+        </div>
+
+        <div class="grid gap-6 md:grid-cols-3">
+          <a href="portfolio.html" class="group">
+            <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=80"
+              alt="Wedding event inspiration" loading="lazy"
+              class="h-80 w-full object-cover transition duration-500 group-hover:brightness-75">
+            <h3 class="mt-5 font-display text-2xl font-semibold">Wedding Celebrations</h3>
+            <p class="mt-2 text-sm text-stone-600">Décor · Planning · Hospitality</p>
+          </a>
+          <a href="portfolio.html" class="group">
+            <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=800&q=80"
+              alt="Corporate event inspiration" loading="lazy"
+              class="h-80 w-full object-cover transition duration-500 group-hover:brightness-75">
+            <h3 class="mt-5 font-display text-2xl font-semibold">Corporate Gatherings</h3>
+            <p class="mt-2 text-sm text-stone-600">Planning · Production · Coordination</p>
+          </a>
+          <a href="portfolio.html" class="group">
+            <img src="https://images.unsplash.com/photo-1506157786151-b8491531f063?auto=format&fit=crop&w=800&q=80"
+              alt="Live concert inspiration" loading="lazy"
+              class="h-80 w-full object-cover transition duration-500 group-hover:brightness-75">
+            <h3 class="mt-5 font-display text-2xl font-semibold">Live Experiences</h3>
+            <p class="mt-2 text-sm text-stone-600">Stage · Sound · Lighting</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="bg-ink px-5 py-20 text-white sm:py-24 lg:px-10">
+      <div class="mx-auto max-w-5xl text-center">
+        <p class="text-xs font-bold uppercase tracking-[.25em] text-gold">Kind Words</p>
+        <h2 class="mt-4 font-display text-4xl font-semibold sm:text-6xl">
+          Every celebration deserves <span class="display-em">care.</span>
+        </h2>
+        <p class="mx-auto mt-6 max-w-2xl leading-8 text-white/65">
+          We want every client to feel heard, supported and confident throughout
+          the planning process.
+        </p>
+        <a href="contact.html" class="mt-8 inline-block border border-gold px-7 py-4 text-sm font-bold text-gold hover:bg-gold hover:text-ink">
+          Share Your Event Plans →
+        </a>
+      </div>
+    </section>
+
+    <!-- CLIENTS / TRUST -->
+    <section class="px-5 py-14 lg:px-10">
+      <div class="mx-auto max-w-5xl text-center">
+        <p class="text-xs font-bold uppercase tracking-[.2em] text-stone-500">
+          A thoughtful approach to every event
+        </p>
+        <div class="mt-8 flex flex-wrap justify-center gap-4">
+          <span class="border border-stone-200 px-5 py-3 text-sm">Weddings</span>
+          <span class="border border-stone-200 px-5 py-3 text-sm">Conferences</span>
+          <span class="border border-stone-200 px-5 py-3 text-sm">Concerts</span>
+          <span class="border border-stone-200 px-5 py-3 text-sm">Birthdays</span>
+          <span class="border border-stone-200 px-5 py-3 text-sm">Private Events</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="px-5 pb-20 lg:px-10 lg:pb-28">
+      <div class="relative mx-auto max-w-7xl overflow-hidden bg-ink px-6 py-16 text-white sm:px-12 sm:py-20">
+        <img src="https://images.unsplash.com/photo-1510076857177-7470076d4098?auto=format&fit=crop&w=1800&q=70"
+          alt="" loading="lazy" class="absolute inset-0 h-full w-full object-cover opacity-25">
+        <div class="relative max-w-3xl">
+          <p class="text-xs font-bold uppercase tracking-[.25em] text-gold">Let's Get Started</p>
+          <h2 class="mt-5 font-display text-4xl font-semibold sm:text-6xl">
+            What will your event cost?
+            <span class="display-em">Let's plan it together.</span>
+          </h2>
+          <p class="mt-5 max-w-2xl leading-7 text-white/75">
+            Tell us about your event and receive a personalised discussion
+            about the services and budget that may suit your needs.
+          </p>
+          <div class="mt-8 flex flex-wrap gap-4">
+            <a href="plan.html" class="bg-gold px-7 py-4 text-sm font-bold text-ink hover:bg-white">
+              Start Planning →
+            </a>
+            <a href="https://wa.me/8801760119819" target="_blank" rel="noopener noreferrer"
+              class="border border-white/60 px-7 py-4 text-sm font-bold hover:bg-white hover:text-ink">
+              Chat on WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- JOURNAL -->
+    <section class="bg-sand px-5 py-20 sm:py-24 lg:px-10">
+      <div class="mx-auto max-w-7xl">
+        <div class="mb-12 flex flex-wrap items-end justify-between gap-5">
+          <div>
+            <p class="text-xs font-bold uppercase tracking-[.25em] text-amber-800">The Journal</p>
+            <h2 class="mt-4 font-display text-4xl font-semibold sm:text-6xl">
+              Ideas & <span class="display-em">inspiration.</span>
+            </h2>
+          </div>
+          <a href="blog.html" class="text-sm font-bold hover:text-amber-800">All Articles →</a>
+        </div>
+
+        <div class="grid gap-8 md:grid-cols-3">
+          <article>
+            <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=700&q=80"
+              alt="Wedding inspiration" loading="lazy" class="h-56 w-full object-cover">
+            <p class="mt-5 text-xs uppercase tracking-widest text-amber-800">Weddings</p>
+            <h3 class="mt-2 font-display text-2xl font-semibold">Planning Your Dream Wedding</h3>
+            <a href="blog.html" class="mt-4 inline-block text-sm font-bold">Read More →</a>
+          </article>
+          <article>
+            <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=700&q=80"
+              alt="Corporate event inspiration" loading="lazy" class="h-56 w-full object-cover">
+            <p class="mt-5 text-xs uppercase tracking-widest text-amber-800">Corporate</p>
+            <h3 class="mt-2 font-display text-2xl font-semibold">Creating Memorable Brand Events</h3>
+            <a href="blog.html" class="mt-4 inline-block text-sm font-bold">Read More →</a>
+          </article>
+          <article>
+            <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=700&q=80"
+              alt="Celebration inspiration" loading="lazy" class="h-56 w-full object-cover">
+            <p class="mt-5 text-xs uppercase tracking-widest text-amber-800">Celebrations</p>
+            <h3 class="mt-2 font-display text-2xl font-semibold">Ideas for Your Next Celebration</h3>
+            <a href="blog.html" class="mt-4 inline-block text-sm font-bold">Read More →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ + ENQUIRY FORM -->
+    <section class="px-5 py-20 sm:py-24 lg:px-10">
+      <div class="mx-auto grid max-w-7xl items-start gap-14 md:grid-cols-2">
+
+        <div>
+          <p class="text-xs font-bold uppercase tracking-[.25em] text-amber-800">Questions</p>
+          <h2 class="mt-4 font-display text-4xl font-semibold sm:text-6xl">
+            Frequently <span class="display-em">asked.</span>
+          </h2>
+
+          <div class="mt-8 divide-y divide-stone-200">
+            <details class="py-5">
+              <summary class="cursor-pointer font-bold">What events do you plan?</summary>
+              <p class="mt-3 text-sm leading-7 text-stone-600">We can discuss weddings, corporate events, conferences, concerts, birthdays and private celebrations.</p>
+            </details>
+            <details class="py-5">
+              <summary class="cursor-pointer font-bold">How much does event planning cost?</summary>
+              <p class="mt-3 text-sm leading-7 text-stone-600">The cost depends on the event type, guest count, venue, services and design. Contact us for a tailored discussion.</p>
+            </details>
+            <details class="py-5">
+              <summary class="cursor-pointer font-bold">Do you provide decoration and production?</summary>
+              <p class="mt-3 text-sm leading-7 text-stone-600">Tell us which services you need. We can discuss décor, staging, vendors and production requirements.</p>
+            </details>
+            <details class="py-5">
+              <summary class="cursor-pointer font-bold">Where do you provide services?</summary>
+              <p class="mt-3 text-sm leading-7 text-stone-600">We focus on Chattogram. Ask us about your preferred venue and location.</p>
+            </details>
+            <details class="py-5">
+              <summary class="cursor-pointer font-bold">How do I get started?</summary>
+              <p class="mt-3 text-sm leading-7 text-stone-600">Complete the enquiry form with your contact details and event requirements.</p>
+            </details>
+          </div>
+        </div>
+
+        <div class="bg-sand p-6 sm:p-9">
+          <p class="text-xs font-bold uppercase tracking-[.25em] text-amber-800">Let's Talk</p>
+          <h3 class="mt-3 font-display text-3xl font-semibold sm:text-4xl">Tell us about your event</h3>
+          <p class="mt-4 text-sm leading-7 text-stone-600">
+            Share your details so we can understand what you're planning.
+          </p>
+
+          <form id="enquiry-form" class="mt-7 space-y-5">
+            <div>
+              <label for="h-name" class="mb-2 block text-sm font-semibold">Full Name *</label>
+              <input id="h-name" name="name" autocomplete="name" required
+                class="w-full border border-stone-300 bg-white px-4 py-3 outline-none focus:border-amber-800">
+            </div>
+
+            <div>
+              <label for="h-phone" class="mb-2 block text-sm font-semibold">Phone *</label>
+              <input id="h-phone" name="phone" type="tel" autocomplete="tel" required
+                class="w-full border border-stone-300 bg-white px-4 py-3 outline-none focus:border-amber-800">
+            </div>
+
+            <div>
+              <label for="h-email" class="mb-2 block text-sm font-semibold">Email *</label>
+              <input id="h-email" name="email" type="email" autocomplete="email" required
+                class="w-full border border-stone-300 bg-white px-4 py-3 outline-none focus:border-amber-800">
+            </div>
+
+            <div>
+              <label for="h-type" class="mb-2 block text-sm font-semibold">Event Type *</label>
+              <select id="h-type" name="event_type" required
+                class="w-full border border-stone-300 bg-white px-4 py-3 outline-none focus:border-amber-800">
+                <option value="">Select an event</option>
+                <option>Wedding</option>
+                <option>Corporate Event</option>
+                <option>Conference</option>
+                <option>Concert</option>
+                <option>Birthday Party</option>
+                <option>Private Celebration</option>
+                <option>Other</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="h-guests" class="mb-2 block text-sm font-semibold">Approximate Guests</label>
+              <select id="h-guests" name="guests"
+                class="w-full border border-stone-300 bg-white px-4 py-3 outline-none focus:border-amber-800">
+                <option value="">Choose guest count</option>
+                <option>Under 50</option>
+                <option>50–150</option>
+                <option>150–300</option>
+                <option>300–600</option>
+                <option>600–1,000</option>
+                <option>1,000+</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="h-msg" class="mb-2 block text-sm font-semibold">Event Details</label>
+              <textarea id="h-msg" name="message" rows="4"
+                placeholder="Date, venue, budget and ideas..."
+                class="w-full border border-stone-300 bg-white px-4 py-3 outline-none focus:border-amber-800"></textarea>
+            </div>
+
+            <button type="submit" class="w-full bg-ink px-7 py-4 text-sm font-bold text-white hover:bg-amber-800">
+              Send Enquiry →
+            </button>
+            <p id="form-message" class="text-sm text-stone-600" aria-live="polite"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- INSTAGRAM / SOCIAL -->
+    <section class="bg-sand px-5 py-12 text-center">
+      <p class="text-xs font-bold uppercase tracking-[.25em] text-amber-800">Follow Our Journey</p>
+      <h2 class="mt-3 font-display text-3xl font-semibold">A little inspiration for your next event.</h2>
+      <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer"
+        class="mt-5 inline-block text-sm font-bold underline underline-offset-4">
+        Visit Instagram →
+      </a>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-black px-5 py-12 text-white/70 lg:px-10">
+    <div class="mx-auto grid max-w-7xl gap-8 sm:grid-cols-2 lg:grid-cols-4">
+      <div>
+        <a href="index.html" class="font-display text-3xl font-bold text-white">
+          Aurelia<span class="text-gold">.</span>
+        </a>
+        <p class="mt-4 max-w-xs text-sm leading-7">
+          Thoughtful event planning for memorable celebrations in Chattogram, Bangladesh.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-bold text-white">Explore</h3>
+        <div class="mt-4 space-y-3 text-sm">
+          <p><a href="about.html" class="hover:text-gold">About Us</a></p>
+          <p><a href="services.html" class="hover:text-gold">Services</a></p>
+          <p><a href="portfolio.html" class="hover:text-gold">Portfolio</a></p>
+          <p><a href="blog.html" class="hover:text-gold">Journal</a></p>
+        </div>
+      </div>
+
+      <div>
+        <h3 class="font-bold text-white">Contact</h3>
+        <div class="mt-4 space-y-3 text-sm">
+          <p>Halishahar, Chattogram, Bangladesh</p>
+          <p><a href="tel:+8801760119819" class="hover:text-gold">+880 1760-119819</a></p>
+          <p><a href="mailto:hello@aureliaevents.in" class="hover:text-gold">hello@aureliaevents.in</a></p>
+        </div>
+      </div>
+
+      <div>
+        <h3 class="font-bold text-white">Plan an Event</h3>
+        <p class="mt-4 text-sm leading-7">Have an idea? Let's discuss your event and requirements.</p>
+        <a href="contact.html" class="mt-4 inline-block bg-gold px-5 py-3 text-sm font-bold text-ink hover:bg-white">
+          Contact Us →
+        </a>
+      </div>
+    </div>
+
+    <div class="mx-auto mt-10 max-w-7xl border-t border-white/15 pt-6 text-xs">
+      © <span id="year"></span> Aurelia Events. All rights reserved.
+    </div>
+  </footer>
+
+  <script>
+    // Mobile navigation
+    const menuButton = document.getElementById("menu-button");
+    const mobileMenu = document.getElementById("mobile-menu");
+
+    menuButton.addEventListener("click", () => {
+      const isOpen = mobileMenu.classList.toggle("menu-open");
+      menuButton.setAttribute("aria-expanded", String(isOpen));
+    });
+
+    mobileMenu.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        mobileMenu.classList.remove("menu-open");
+        menuButton.setAttribute("aria-expanded", "false");
+      });
+    });
+
+    // Hero heading word rotation
+    const words = [
+      "weddings",
+      "launches",
+      "concerts",
+      "conferences",
+      "celebrations"
+    ];
+    let wordIndex = 0;
+    const heroWord = document.getElementById("hero-word");
+
+    setInterval(() => {
+      wordIndex = (wordIndex + 1) % words.length;
+      heroWord.textContent = words[wordIndex];
+    }, 2500);
+
+    // Current year
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Demo form: validates fields but does not send or store submissions
+    document.getElementById("enquiry-form").addEventListener("submit", event => {
+      event.preventDefault();
+
+      if (!event.currentTarget.reportValidity()) return;
+
+      document.getElementById("form-message").textContent =
+        "Demo only: your enquiry has not been sent. Connect a form service or backend to receive enquiries.";
+    });
+  </script>
+
+</body>
+</html>
