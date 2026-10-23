@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en-BD">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Contact Us</title>
+  <meta name="description" content="Call, WhatsApp, email or visit our offices in Chattogram. Free consultation for weddings and corporate events.">
+  <meta name="theme-color" content="#15110e">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="contact">
+<div id="site-header"></div>
+
+<main id="main">
+  <section class="page-hero" data-render="page-hero" data-img="tableDecor">
+    <div class="page-hero__bg"></div>
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a> / <span aria-current="page">Contact</span></nav>
+      <span class="eyebrow">Get in touch</span>
+      <h1>Let's start <span class="display-em">planning.</span></h1>
+      <p>Call, WhatsApp, email or drop by for a coffee. Consultations are always free.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container split" style="align-items:start">
+      <div class="reveal">
+        <span class="eyebrow">Contact details</span>
+        <h2>We'd love to <span class="display-em">hear from you</span></h2>
+        <p class="muted" style="margin-bottom:34px">Our planners reply within 2 working hours. For events in the next 7 days, please call us directly.</p>
+        <div class="info-list">
+          <div class="info-item"><div class="info-item__icon"><i data-icon="phone"></i></div><div><span>Call us</span><a data-site="phone" href="#"></a></div></div>
+          <div class="info-item"><div class="info-item__icon"><i data-icon="whatsapp"></i></div><div><span>WhatsApp</span><a data-site="whatsapp" href="#" target="_blank" rel="noopener">Chat with a planner</a></div></div>
+          <div class="info-item"><div class="info-item__icon"><i data-icon="mail"></i></div><div><span>Email</span><a data-site="email" href="#"></a></div></div>
+          <div class="info-item"><div class="info-item__icon"><i data-icon="pin"></i></div><div><span>Head office</span><strong data-site="address"></strong></div></div>
+          <div class="info-item"><div class="info-item__icon"><i data-icon="clock"></i></div><div><span>Office hours</span><strong data-site="hours"></strong></div></div>
+        </div>
+      </div>
+      <div class="contact-card reveal" data-delay="2">
+        <span class="eyebrow">Send a message</span>
+        <h3>Enquiry form</h3>
+        <form class="form" data-form="contact" data-subject="Contact page enquiry" novalidate style="margin-top:20px">
+          <div class="form-row">
+            <div class="field"><label for="ct-name">Full name <span class="req">*</span></label><input id="ct-name" name="name" required autocomplete="name"></div>
+            <div class="field"><label for="ct-phone">Phone <span class="req">*</span></label><input id="ct-phone" name="phone" type="tel" required autocomplete="tel"></div>
+          </div>
+          <div class="field"><label for="ct-email">Email <span class="req">*</span></label><input id="ct-email" name="email" type="email" required autocomplete="email"></div>
+          <div class="form-row">
+            <div class="field"><label for="ct-type">Event type <span class="req">*</span></label><select id="ct-type" name="event_type" required data-event-types></select></div>
+            <div class="field"><label for="ct-date">Event date</label><input id="ct-date" name="event_date" type="date"></div>
+          </div>
+          <div class="form-row">
+            <div class="field"><label for="ct-guests">Guests</label><select id="ct-guests" name="guests"><option value="">Approx. guests</option><option>Under 50</option><option>50 – 150</option><option>150 – 300</option><option>300 – 600</option><option>600 – 1,000</option><option>1,000+</option></select></div>
+            <div class="field"><label for="ct-budget">Budget</label><select id="ct-budget" name="budget"><option value="">Select budget</option><option>Under ৳50,000</option><option>৳50,000 – ৳150,000</option><option>৳150,000 – ৳500,000</option><option>৳500,000 –৳1,000,000</option><option>৳1,000,000+</option></select></div>
+          </div>
+          <div class="field"><label for="ct-src">How did you hear about us?</label><select id="ct-src" name="source"><option value="">Select</option><option>Google search</option><option>Instagram</option><option>Friend / family referral</option><option>Attended one of your events</option><option>Wedding / event portal</option><option>Other</option></select></div>
+          <div class="field"><label for="ct-msg">Message <span class="req">*</span></label><textarea id="ct-msg" name="message" required placeholder="Tell us about your vision…"></textarea></div>
+          <input type="text" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <button class="btn btn--dark btn--block" type="submit">Send message <i data-icon="arrow"></i></button>
+          <p class="form__note">By submitting, you agree to our <a href="privacy.html" class="gold">privacy policy</a>.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--sand">
+    <div class="container">
+      <div class="section-head center reveal">
+        <span class="eyebrow">Our offices</span>
+        <h2>Visit us in <span class="display-em">four cities</span></h2>
+      </div>
+      <div class="grid grid--4" data-render="offices" style="margin-bottom:40px"></div>
+      <div class="map reveal" data-render="map"></div>
+    </div>
+  </section>
+
+  <section class="section" id="faq" style="scroll-margin-top:100px">
+    <div class="container split" style="align-items:start">
+      <div class="reveal">
+        <span class="eyebrow">FAQs</span>
+        <h2>Answers to common <span class="display-em">questions</span></h2>
+        <p class="muted">Everything you need to know about working with us. Still curious? Just ask.</p>
+        <a href="plan.html" class="btn btn--gold" style="margin-top:12px">Get an instant estimate <i data-icon="arrow"></i></a>
+      </div>
+      <div class="accordion reveal" data-delay="2" data-render="faqs"></div>
+    </div>
+  </section>
+</main>
+
+<div id="site-footer"></div>
+<script src="assets/js/config.js"></script>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/main.js"></script>
+</body>
+</html>

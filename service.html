@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en-BD">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Service</title>
+  <meta name="description" content="Event service details, inclusions, pricing and related case studies.">
+  <meta name="theme-color" content="#15110e">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="service">
+<div id="site-header"></div>
+
+<main id="main">
+  <section class="page-hero">
+    <div class="page-hero__bg"></div>
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a> / <a href="services.html">Services</a> / <span aria-current="page" data-slot="crumb"></span></nav>
+      <span class="eyebrow" data-slot="cat"></span>
+      <h1 data-slot="title"></h1>
+      <p data-slot="short"></p>
+      <div class="hero__actions" style="margin-top:30px">
+        <a href="plan.html" class="btn btn--gold" data-slot="plan">Plan &amp; get estimate <i data-icon="arrow"></i></a>
+        <a href="#" class="btn btn--light" data-quote data-slot="quote">Request a callback</a>
+      </div>
+    </div>
+  </section>
+
+  <div data-render="service-detail"></div>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head center reveal">
+        <span class="eyebrow">How it works</span>
+        <h2>Our <span class="display-em">five-step</span> process</h2>
+      </div>
+      <div class="process" data-render="process"></div>
+    </div>
+  </section>
+
+  <section class="section section--sand">
+    <div class="container split" style="align-items:start">
+      <div class="reveal">
+        <span class="eyebrow">Questions</span>
+        <h2>Frequently <span class="display-em">asked</span></h2>
+        <p class="muted">Still unsure? <a href="contact.html" class="link-arrow">Talk to a planner <i data-icon="arrow"></i></a></p>
+      </div>
+      <div class="accordion reveal" data-render="faqs" data-limit="5"></div>
+    </div>
+  </section>
+</main>
+
+<div id="site-footer"></div>
+<script src="assets/js/config.js"></script>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/main.js"></script>
+</body>
+</html>
